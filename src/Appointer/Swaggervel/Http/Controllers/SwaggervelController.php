@@ -1,4 +1,4 @@
-<?php namespace Appointer\Swaggervel\Http\Controllers;
+<?php namespace LaravelRussian\Swaggervel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -80,12 +80,12 @@ class SwaggervelController extends Controller
         if (is_writable($docDir)) {
             $excludeDirs = config('swaggervel.excludes');
 
-            $swagger = \Swagger\scan($appDir, [
+            $swagger = \OpenApi\scan($appDir, [
                 'exclude' => $excludeDirs
             ]);
 
             $filename = $docDir . '/api-docs.json';
-            file_put_contents($filename, $swagger);
+            file_put_contents($filename, $swagger->toJson());
         }
     }
 
