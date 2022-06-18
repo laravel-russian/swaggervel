@@ -79,9 +79,11 @@ class SwaggervelController extends Controller
 
         if (is_writable($docDir)) {
             $excludeDirs = config('swaggervel.excludes');
+
             $openapi = \OpenApi\Generator::scan([$appDir], [
                 'exclude' => $excludeDirs
             ]);
+
             $filename = $docDir . '/api-docs.json';
             file_put_contents($filename, $openapi->toJson());
         }
