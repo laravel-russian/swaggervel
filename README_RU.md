@@ -8,7 +8,8 @@
 ## Принцип работы
 
 При запуске в режиме debug, пакет сканирует папку `'app-dir' => 'app/Http/Controllers'`
-и сохраняет необходимый для Swagger json файл в папке `'doc-dir' => storage_path('docs')`
+ищёт там соответствующие анатации описывающие функции контролера
+и сохраняет сформированный для Swagger/OpenApi json файл в папке `'doc-dir' => storage_path('docs')`
 Затем swagger-ui для своей работы использует этот json.
 
 ## Установка
@@ -19,11 +20,11 @@
 - `php artisan vendor:publish --tag=config` добавляет config
 - `php artisan vendor:publish --tag=views` добавляет используемые views в resources `resources/views/vendor/swaggervel`
 
-## Examples (when using the default configuration)
+## Роуты доступа
 
 - /docs покажет json файл
 - /api/docs доступ к самому Swagger UI
 
 ## Опции и конфиг
 
-Все изменяемые опции находятся в файле конфигурации swaggervel.php
+Все изменяемые опции находятся в файле конфигурации `/config/swaggervel.php`
